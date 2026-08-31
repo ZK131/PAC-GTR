@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pac-gtr"
+version = "0.1.0"
+description = "Code-only reference implementation of probability-aware clustering and geometry-gated topology recovery for 3D crack centerlines."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "GPL-3.0-only" }
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+include = ["pac_gtr*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
