@@ -1,0 +1,29 @@
+{
+  "dataset": "CrackStructures",
+  "protocol": "frozen_v2.1_metric_geometry",
+  "distance_units": "meters",
+  "points": 1000000,
+  "views": 6,
+  "pac_gtr_branch": {
+    "threshold": 0.25,
+    "eps_m": 0.035,
+    "adaptive_power": 0.05,
+    "min_points": 5,
+    "min_samples_cluster": 1,
+    "init_contraction": 10.0,
+    "max_gap_m": 0.04,
+    "min_alignment_cos": 0.866
+  },
+  "qbs_selector": {
+    "candidate_branch": "pac_gtr_full",
+    "fallback_branch": "fixed_dbscan_eps_0.05_m",
+    "use_full_if": "score_ratio >= 0.90 OR (0.0015 <= crack_fraction < 0.0020 AND 0.40 <= crack_mean <= 0.50)"
+  },
+  "evaluation": {
+    "component_iou_association": 0.1,
+    "component_iou_strict_match": 0.5,
+    "endpoint_tolerance_m": 0.04,
+    "failure_penalty_chamfer_mm": 500.0
+  },
+  "parameter_status": "frozen_before_future_independent_evaluation"
+}
