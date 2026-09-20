@@ -1,0 +1,26 @@
+{
+  "model": {
+    "name": "TopoCrackNet",
+    "input_channels": 3,
+    "encoder_channels": [24, 48, 96, 192],
+    "heads": ["region", "centerline", "boundary"]
+  },
+  "loss": {
+    "region_bce": 0.65,
+    "region_dice": 0.35,
+    "centerline_weight": 0.25,
+    "boundary_weight": 0.15,
+    "soft_cldice_weight": 0.15
+  },
+  "l515_protocol": {
+    "split": {"train": 531, "validation": 224, "test": 245},
+    "epochs": 40,
+    "batch_size": 8,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0002,
+    "weight_decay": 0.0001,
+    "schedule": "cosine annealing",
+    "seed": 42,
+    "threshold": 0.5
+  }
+}
