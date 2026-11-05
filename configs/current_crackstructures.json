@@ -1,0 +1,46 @@
+{
+  "domain": "crackstructures",
+  "units": "meters",
+  "points": 1000000,
+  "views": 6,
+  "donor": "visible-view mean of learned DUTR",
+  "native": "Omni visible-view mean with two-camera/spatial weak-seed recovery",
+  "structure_ranker": "held-out-structure model",
+  "backend": {
+    "high_probability": 0.25,
+    "low_probability": 0.15,
+    "pac_radius": 0.035,
+    "pac_probability_power": 0.05,
+    "centroid_merge_radius": 0.105,
+    "minimum_component_points": 5,
+    "geometry_veto_minimum_points": 20,
+    "geometry_veto_anisotropy": 0.7,
+    "sample_spacing": 0.0025,
+    "support_radius": 0.005,
+    "base_link_gap": 0.04,
+    "residual_chord_range": [
+      0.025,
+      0.065
+    ],
+    "residual_ranker_probability": 0.55,
+    "endpoint_odds_factor": 2,
+    "maximum_residual_links": 2,
+    "gtr_trim_gap": 0.03,
+    "gtr_ridge_radius": 0.006,
+    "gtr_ridge_total_displacement_cap": 0.003,
+    "gtr_normal_pass_radius": 0.004,
+    "gtr_normal_pass_cap": 0.0015,
+    "endpoint_step": 0.005,
+    "endpoint_steps": [
+      2,
+      4
+    ],
+    "cross_branch_gap": 0.08,
+    "graft_minimum_length": 0.015,
+    "graft_novel_fraction": 0.75,
+    "backbone_expansion_ratio": 1.25,
+    "maximum_prune_fraction": 0.08,
+    "source_anchor_probability": 0.5,
+    "source_anchor_missing_radius": 0.003
+  }
+}

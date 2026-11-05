@@ -1,142 +1,79 @@
-# TopoCrackNet and PAC-GTR: code-only reproducibility release
+# Probability-aware multiview crack reconstruction
 
-This repository contains the original code for two complementary stages of a
-multi-view 2.5D crack-reconstruction workflow:
+This code-only repository contains the current four-module reconstruction
+method: directional uncertainty-guided image refinement (DUTR), probability-aware
+clustering (PAC), adaptive weak-fragment recovery (WFR), and geometry-topology
+refinement (GTR). The current implementation is in `crack_reconstruction/`.
 
-- **TopoCrackNet**: RGB crack segmentation with region, centreline and boundary heads;
-- **PAC**: probability-aware adaptive graph clustering;
-- **GTR**: geometry-gated recovery of compatible centerline components;
-- deterministic instance, endpoint, distance, and topology evaluation;
-- frozen protocol files for L515, CrackStructures and CrackEnsembles;
-- a synthetic PAC-GTR smoke test and an L515 TopoCrackNet training entry point.
+## Current implementation
 
-## Scope
+- Frozen context/auxiliary image model definitions, the 8,691-parameter DUTR gate,
+  and the original gate training objective and validation selection.
+- Visibility-aware probability aggregation and multiview/spatial native weak-seed recovery.
+- Separate donor and native graph branches with the actual executed PAC, WFR,
+  ranked route selection, local GTR and supported endpoint continuation.
+- Cross-branch continuation, component grafting, backbone/pruning protection,
+  local recovery and source-connected anchor restoration.
+- Dataset-specific configurations and the principal and equal-arc evaluation code.
+- A command-line reconstruction entry point, automated checks and source hashes.
 
-This is intentionally a **code-only** repository. It does not contain or redistribute:
+The original `pac_gtr/` and `topocracknet/` APIs remain for compatibility with
+the earlier code release. They are separate from the current four-module API.
 
-- CrackStructures, CrackEnsembles, or any other third-party dataset;
-- mesh, image, point-cloud, or annotation files;
-- model checkpoints, frontend probability archives, or trained weights;
-- raw experiment outputs, author information, or manuscript files.
+## Install and run
 
-Users must obtain all datasets under their original licenses and prepare the
-inputs independently. The TopoCrackNet trainer expects a prepared L515 array
-split; PAC-GTR accepts arrays of 3D points and per-point crack probabilities.
-
-## Installation
-
-```bash
-python -m venv .venv
-python -m pip install -e ".[test,train]"
-```
-
-## TopoCrackNet: 2D crack segmentation
-
-TopoCrackNet is a lightweight U-Net with region, centreline and boundary
-outputs. The centreline and boundary branches are used only as training
-supervision; inference uses the sigmoid probability of the region head.
-
-The frozen L515 protocol is documented in
-`configs/topocracknet_l515.json`. The split has 531 training images, 224
-validation images and 245 test images. The dataset is not redistributed here.
-
-Prepare a directory containing the six arrays below:
-
-```text
-/path/to/l515_scene_split/data/
-  data_train.npy    mask_train.npy
-  data_val.npy      mask_val.npy
-  data_test.npy     mask_test.npy
-```
-
-Train with the fixed default configuration:
+Python 3.11 is the validated reconstruction environment. Obtain datasets and
+learned artifacts separately, then install:
 
 ```bash
-python scripts/train_topocracknet_l515.py \
-  --data-root /path/to/l515_scene_split/data \
-  --output-dir runs/topocracknet_l515
+python -m pip install -e ".[reconstruction,image,test]"
+python -m unittest discover -s tests -p "test_current_reconstruction.py"
+python -m crack_reconstruction --help
 ```
 
-The script selects the checkpoint with the highest validation F1 and writes
-`history.csv`, `summary.json` and the selected checkpoint to the supplied
-output directory. The default `runs/` directory is excluded by `.gitignore`.
-
-For inference in a separate Python workflow:
-
-```python
-import torch
-from topocracknet import TopoCrackNet
-
-model = TopoCrackNet()
-checkpoint = torch.load("best.pt", map_location="cpu")
-model.load_state_dict(checkpoint["model"])
-model.eval()
-region_probability = model.predict_region(rgb_images)
-```
-
-`rgb_images` must have shape `[batch, 3, height, width]` and values in
-`[0, 1]`.
-
-## PAC-GTR: 3D probability-point-cloud post-processing
-
-## Synthetic smoke test
-
-The demonstration creates two noisy collinear crack fragments in memory; it is not research data.
+Reconstruct from aligned coordinates, normals and the two prepared probability fields:
 
 ```bash
-python scripts/demo_synthetic.py
-pytest -q
+python -m crack_reconstruction \
+  --input /your/prepared/registered_fields.npz \
+  --ranker /your/weights/heldout_structure_ranker.json \
+  --output /your/runs/centerline_graph.json
 ```
 
-Expected behavior:
+See [the reproduction guide](docs/REPRODUCING_CURRENT_METHOD.md) for calibration,
+NPZ fields, image training, ranker fitting, probability roles and dataset adapters.
+The current physical and normalized configurations are
+`configs/current_crackstructures.json` and `configs/current_crackensembles.json`.
+Do not substitute the legacy `configs/crackensembles_protocol.json` for the
+current four-module adapter.
 
-- PAC identifies candidate components from 3D coordinates and probabilities;
-- GTR joins only components that satisfy the frozen gap and alignment gates;
-- the evaluator returns deterministic point, instance, endpoint, and topology metrics.
+## Verification
 
-## Minimal API
+The relocated integration code was checked against all 15 frozen CrackStructures
+graphs. A complete reconstruction from the one-million-point beam_segment1
+fields also matched the frozen graph, with 414 nodes and 406 edges. A normalized
+CrackEnsembles reconstruction matched its frozen graph (64 nodes,60 edges).
+Seven public
+checks cover visibility, seed recovery, image-gate initialization, learned-ranker
+serialization, empty seeds and the Chamfer definition. These are migration
+checks, not new experiments or a claim that model training was repeated.
 
-The two datasets do not share one parameterization. CrackEnsembles uses distances normalized by a robust per-sample diagonal, whereas CrackStructures uses metric distances in meters. Select the protocol explicitly:
+## Data and learned artifacts
 
-```python
-from pac_gtr import CrackEnsemblesProtocol, predict_components
+The repository distributes source code, configurations and instructions. It
+does not redistribute third-party datasets, photographs, surface samples,
+annotations, trained model/ranker weights or raw prediction archives. Users
+obtain these under the original providers' terms and supply their own prepared
+inputs and learned artifacts. `docs/SOURCE_PROVENANCE.json` traces the released
+definitions to the executed research source; `docs/VALIDATION_ENVIRONMENT.json`
+identifies the environment used for release checks, not historical timing hardware.
 
-records, point_mask = predict_components(
-    points_xyz,
-    crack_probabilities,
-    protocol=CrackEnsemblesProtocol(),
-    mode="full",  # baseline, pac, gate, gtr, or full
-)
-```
+## Upstream and license
 
-For metric CrackStructures inputs, use `CrackStructuresProtocol()`. Its frozen full branch uses threshold 0.25, PAC epsilon 0.035 m, and GTR maximum gap 0.04 m.
-
-The complete machine-readable configurations are:
-
-- `configs/crackensembles_protocol.json`
-- `configs/crackstructures_protocol.json`
-
-`full` combines PAC and GTR. The implementation is deterministic for fixed inputs.
-
-## Reproducibility boundary
-
-This repository exposes the TopoCrackNet training implementation and the
-PAC-GTR post-processing and evaluation logic. It does not redistribute
-datasets, model weights, raw prediction archives or manuscript numerical
-outputs. Users should reproduce results with data obtained from the original
-providers and should cite the underlying datasets.
-
-CrackStructures is real multi-view data with manual centerline annotations. CrackEnsembles is semi-synthetic and uses procedurally derived centerline ground truth. Neither dataset is redistributed here.
-
-## Relationship to ENSTRECT and CrackStructures
-
-The 3D stage extends the ENSTRECT workflow at post-processing and evaluation.
-The multi-view data and semantic-mapping workflow are available from
-CrackStructures at <https://github.com/ben-z-original/crackstructures>; the
-original ENSTRECT project is available at
-<https://github.com/ben-z-original/enstrect>. No upstream dataset, asset,
-checkpoint or complete source tree is copied into this release.
-
-## License
-
-The code in this repository is released under GPL-3.0-only to remain compatible with the upstream ENSTRECT project. See `LICENSE` and `THIRD_PARTY.md`.
+The calibrated mapping and contraction workflow builds on
+[ENSTRECT](https://github.com/ben-z-original/enstrect) and
+[CrackStructures](https://github.com/ben-z-original/crackstructures).
+Selected ENSTRECT-derived extraction code is included under GPL-3.0-only,
+together with the authors' added reconstruction modules. See LICENSE and
+THIRD_PARTY.md. No complete upstream project, dataset or pretrained weight
+distribution is copied into this repository.

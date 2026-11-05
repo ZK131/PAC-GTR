@@ -1,0 +1,18 @@
+{
+  "purpose": "release verification environment; not the historical timing-machine record",
+  "python": "3.11.15",
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "networkx": "3.6.1",
+    "open3d": "0.19.0",
+    "pc-skeletor": "1.0.0",
+    "scikit-learn": "1.9.0",
+    "torch": "2.8.0+cu129",
+    "opencv-python": "5.0.0.93",
+    "numba": "0.66.0",
+    "robust-laplacian": "1.1.0"
+  },
+  "ranker_checkpoint_training_sklearn": "1.6.1",
+  "learned_artifacts_distributed": false
+}

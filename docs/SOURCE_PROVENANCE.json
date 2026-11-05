@@ -1,0 +1,266 @@
+[
+  {
+    "source_name": "V54B_PAC_SOURCE.py",
+    "source_sha256": "84e1bf592882150f69eb9e38fdc12e177005fe78204e8b06d429863ac585ac99",
+    "released_path": "crack_reconstruction/backend/pac.py",
+    "selected_definitions": [
+      "cfg",
+      "cluster_shape",
+      "local_tangent",
+      "merge_evidence",
+      "cluster",
+      "contract"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; ()",
+    "released_sha256": "d885c9c0c0b68770ebd7a025d25afe157e469f69da3d47f7852531e901003634"
+  },
+  {
+    "source_name": "contraction.py",
+    "source_sha256": "4e9e7301f7c59de87e5add2878009c54e2330faeea9e8a262e3b4b45c50b57f9",
+    "released_path": "crack_reconstruction/backend/contraction.py",
+    "selected_definitions": [
+      "contract_subcloud"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; ()",
+    "released_sha256": "c6a882c7689e54eacfe43e824a571885a28f2732694236b8a1809b3fa94975fa"
+  },
+  {
+    "source_name": "evidence_refinement.py",
+    "source_sha256": "3fb43094673265f11f1faf7ec3247bb8cfca5284bdca26deadab37ba6bfbd12a",
+    "released_path": "crack_reconstruction/backend/evidence_refinement.py",
+    "adaptation": "import namespace relocation only",
+    "released_sha256": "71baafdebef297c05b4d5a998b3f0aef3849a61df24de0706c15c80db7ef9034"
+  },
+  {
+    "source_name": "evidence_refinement_v2.py",
+    "source_sha256": "4c37c20dbc8ffbff03dc3387db455f058a677b736cf796a740f8b02b7616d693",
+    "released_path": "crack_reconstruction/backend/evidence_refinement_v2.py",
+    "adaptation": "import namespace relocation only",
+    "released_sha256": "81cf8cec4fe1ae1dbf9d87a1b48fec593afa85ad2b651d7931b7da3f705d2480"
+  },
+  {
+    "source_name": "V51_SOURCE.py",
+    "source_sha256": "ecf03bedde5a0c227d07483b584566a5f191d3dfaa7b1b298b973632980697a9",
+    "released_path": "crack_reconstruction/backend/local_gtr.py",
+    "selected_definitions": [
+      "sections",
+      "optimize"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; ()",
+    "released_sha256": "a137fd6ab1499fd370019a6245e8d27d1ed11c943869897273b41c6607d8caa2"
+  },
+  {
+    "source_name": "V171_GTR_PROBABILITY_ENDPOINT_EXTENSION_SOURCE_20261025.py",
+    "source_sha256": "268fce31079e3079d646ea2ff8968c9a2c0681a66d5ffdd18f0940b34d3c0d52",
+    "released_path": "crack_reconstruction/backend/endpoint_gtr.py",
+    "selected_definitions": [
+      "extend"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; ()",
+    "released_sha256": "d1e2a082a82ea112e721f0dd176dbb98e2f71e44f219a4122fa5504d1e204a59"
+  },
+  {
+    "source_name": "ALT_A002_CROSS_BRANCH_ENDPOINT_20261027.py",
+    "source_sha256": "5723d3eba62b654425e2231ce98069792c29b3b03d7013139b49a55cfb219631",
+    "released_path": "crack_reconstruction/backend/crossbranch.py",
+    "selected_definitions": [
+      "pos",
+      "extend"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; ()",
+    "released_sha256": "2ce8fd5bb8689e25abed3e731531fabe8e87564138a20a752a92dd1e9c7621c8"
+  },
+  {
+    "source_name": "ALT_A007_COMPONENT_PROVENANCE_FUSION_20261027.py",
+    "source_sha256": "a25b0202e6ff2fbaa5ec213474bd1ea34524377bb6d0e24af8c3b9e464317bd2",
+    "released_path": "crack_reconstruction/backend/component_graft.py",
+    "selected_definitions": [
+      "graft"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; ()",
+    "released_sha256": "75a9ae5425277cc894ac648001024dbb9ee80f51109c5f19fa882711ebd0f90e"
+  },
+  {
+    "source_name": "ALT_A015_STAGE1_SOURCE_20261027.py",
+    "source_sha256": "f71f56bbb3dd41058b52a1cde318619ef58a0ac5e331d3a52eafd37dbefcd56f",
+    "released_path": "crack_reconstruction/backend/backbone.py",
+    "selected_definitions": [
+      "wfr_ridge_refine",
+      "graft"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; [(' out_tree=cKDTree(np.array([out.nodes[n][\"pos\"] for n in out],float))', ' if not len(out):\\n  return out,dict(wfr_long_edges=0,wfr_supported_edges=0,wfr_ridge_nodes=0,removed_components=removed_components,removed_nodes=removed_nodes,added_arcs=0,added_nodes=0,source_only=True,empty_all_pruned_boundary=True)\\n out_tree=cKDTree(np.array([out.nodes[n][\"pos\"] for n in out],float))')]",
+    "released_sha256": "3762d301e54bc437b495fb726c20da23e0b3b845d3c2b5e3f38561b8e9f5013f"
+  },
+  {
+    "source_name": "ALT_A034_STAGE1_SOURCE_20261027.py",
+    "source_sha256": "5c6073669c7c40db110357efdd379185bfdaf5fc3f3d187e932429e406be1532",
+    "released_path": "crack_reconstruction/backend/integration.py",
+    "selected_definitions": [
+      "wfr_endpoint_recover",
+      "wfr_cloud_tangent_extend",
+      "graft"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; [('assert H(A15)==A15_SHA', 'assert backbone.graft is not None  # source hashes are recorded in SOURCE_PROVENANCE.json'), ('old=module(\"a015_frozen_graft\",A15)', 'old=backbone')]",
+    "released_sha256": "5b3e897ba4c6401755899deafb8b530a05f5792a5f54a243b58458ea5b31eb16"
+  },
+  {
+    "source_name": "V155_WFR_COMPONENT_IDENTITY_GAP_RATIO_SOURCE_20261025.py",
+    "source_sha256": "83522b882f4b42aa7382661290b4fa7efe5c5d198ec6d4ab71e9096ca44a1526",
+    "released_path": "crack_reconstruction/backend/route_selection.py",
+    "selected_definitions": [
+      "global_route"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; ()",
+    "released_sha256": "5ea23c51540e422aeb311bdc57dcc78d9625afac2dddddb06a3fce3663d3f496"
+  },
+  {
+    "source_name": "v100_wfr_residual_supported_20261024.py",
+    "source_sha256": "20abfc6e769393bbf26db83d21d3cc5423c72face46ee7aeb878d89056d7d9b6",
+    "released_path": "crack_reconstruction/backend/route_features.py",
+    "selected_definitions": [
+      "graph_same",
+      "features"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; ()",
+    "released_sha256": "90f39ffa78b6260675f5f550dd86a9f61b5e95702c3b00068e44ccede398f987"
+  },
+  {
+    "source_name": "V62_INTEGRATION_SOURCE.py",
+    "source_sha256": "2843db5ee6285ac8916616da11316921ef9903591136ddf11f0d6a0bcfe5ff84",
+    "released_path": "crack_reconstruction/backend/route_updates.py",
+    "selected_definitions": [
+      "add_selected"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; ()",
+    "released_sha256": "8508f32022f63871321067119a57ca54d4cf2acde13541837f5dd5f9064c299a"
+  },
+  {
+    "source_name": "backend_stages_v4_v62.py",
+    "source_sha256": "fdfb7b3b71e3b2586014b43c17cc8e5897b756499ab1521c45a9be87ad989cf7",
+    "released_path": "crack_reconstruction/backend/routes.py",
+    "selected_definitions": [
+      "Parameters",
+      "graph_length",
+      "endpoint_direction",
+      "weak_network",
+      "curved_wfr"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; [('from enstrect.extraction.evidence_refinement import', 'from .evidence_refinement import')]",
+    "released_sha256": "3d479d1217bdc3b85fdb70e61480d73b46d4bbc40aa056c49ee928c450a3a23a"
+  },
+  {
+    "source_name": "lifted_route.py",
+    "source_sha256": "0fbd1027c1b04a1518159429c07933cb12a57045d56b931ac6a603655dd350a2",
+    "released_path": "crack_reconstruction/backend/lifted_route.py",
+    "adaptation": "unchanged source text",
+    "released_sha256": "e7cc2573ccfd715d100564e4d999d2782d03be4dc6a1a3dae9d538961659d738"
+  },
+  {
+    "source_name": "JCCE_TABLE6_CE_EXACT_MST_ACCEL_20261102.py",
+    "source_sha256": "9219d6651dfa5523e067907f52f8fa267e16b7ebc8c48ca91b37eca499866297",
+    "released_path": "crack_reconstruction/backend/normalized_contraction.py",
+    "adaptation": "unchanged source text",
+    "released_sha256": "c481320e08077df35983483f56ce79e0860c7710150a0be01d44d9c13aea8152"
+  },
+  {
+    "source_name": "JCCE_TABLE2_A034_FULL_BACKEND_20261102.py",
+    "source_sha256": "ad7e4499c8d66bcdab638158c9484afee69a6c1b13f7974eade1250c02feb722",
+    "released_path": "crack_reconstruction/pipeline.py",
+    "adaptation": "production loop body promoted to callable; benchmark and private I/O removed; frozen algorithm order retained",
+    "released_sha256": "8099e96c2cd093b78a82d67e50f8084992e352706c6b9f4ac88c3f75241380fc"
+  },
+  {
+    "source_name": "eval_q2_dev_validation.py",
+    "source_sha256": "a999d0738846b7662dea5591b9ddac5875bdf1e86ad2de9fca779ec9995b3d04",
+    "released_path": "crack_reconstruction/metric_sampling.py",
+    "selected_definitions": [
+      "graph_points",
+      "metrics"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; ()",
+    "released_sha256": "66ed233603d8a771e4103de6258097dbeab31a68b39e055f1b633d9d4719c1d8"
+  },
+  {
+    "source_name": "evaluate_deterministic_ap.py",
+    "source_sha256": "c27e3c66aa7cdaf50bdc4a072c77ca40d0afd94e848619a8ad6e6960bb5dab48",
+    "released_path": "crack_reconstruction/metric_components.py",
+    "selected_definitions": [
+      "canonical",
+      "length",
+      "components",
+      "score_component",
+      "ranked_components"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; ()",
+    "released_sha256": "c28b6a8a6e2ba8fe97eada356984d83ebfc44bde42249ed71a6880820dcb4239"
+  },
+  {
+    "source_name": "experiment_final_lineage_ablation.py",
+    "source_sha256": "ce813d483fa830415443ae5d8b0be3070c4ec7fda4b1ab5ba961b1ecc8c38a87",
+    "released_path": "crack_reconstruction/metrics_principal.py",
+    "selected_definitions": [
+      "component_iou",
+      "ap50",
+      "endpoints",
+      "evaluate"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; ()",
+    "released_sha256": "bd93fd5b2141c827b087f2f5fc6f2da11a3bb85329ea1a92526f68e253b44488"
+  },
+  {
+    "source_name": "fresh_metrics.py",
+    "source_sha256": "d6a369057b722e8647d0b2b83641188c38b7ae865fb59a809066cd03ee3ad351",
+    "released_path": "crack_reconstruction/metric_arcs.py",
+    "selected_definitions": [
+      "sample",
+      "matched_f1",
+      "arc_f1",
+      "endpoints",
+      "length"
+    ],
+    "adaptation": "explicit local imports; removed research launchers and machine paths; ()",
+    "released_sha256": "0401d9cec34de3d2f7afc1dd03f9e24859e0a9a966db63cd2ece74cca8c03c7d"
+  },
+  {
+    "source_name": "model.py",
+    "source_sha256": "ae202aa9c799be6966db489f492f59338aeef9772e6aaecdf6bc3b4a616c3676",
+    "released_path": "crack_reconstruction/image/model.py",
+    "adaptation": "import namespace relocation only",
+    "released_sha256": "baeadd60e484d1bee610a36884420b6eb7b92ff204b48366fe4cebab8254b7cb"
+  },
+  {
+    "source_name": "model_v2.py",
+    "source_sha256": "de13fb0f6edf3e975e29ab9a485486fffa3bb27924ff5add4281ee641aaf570f",
+    "released_path": "crack_reconstruction/image/model_v2.py",
+    "adaptation": "import namespace relocation only",
+    "released_sha256": "5075f1cf207d0d671a9a66e9436498d6e04a906209596e40e80d9c24f7a706fd"
+  },
+  {
+    "source_name": "model_v3_context.py",
+    "source_sha256": "1269a9e16582a9ee67c90ca0196d7f042d743bc26a127ed60860d800e3aaf2a4",
+    "released_path": "crack_reconstruction/image/model_v3_context.py",
+    "adaptation": "import namespace relocation only",
+    "released_sha256": "05eaf417d9f0bea4471a879dd9535544550e56895be3d7d46cc960695155873e"
+  },
+  {
+    "source_name": "model_v7_context_cegate.py",
+    "source_sha256": "3cf45618cdd2b6639bbb056bd34b455656f9c27751fdbe531114eeda2fce04f1",
+    "released_path": "crack_reconstruction/image/model_v7_context_cegate.py",
+    "adaptation": "import namespace relocation only",
+    "released_sha256": "db2fe15339edc649e1912954971d828b21e8c41bd52e8619436561a9ecaf204a"
+  },
+  {
+    "source_name": "losses.py",
+    "source_sha256": "6956bcf1e5e6917860e1787bedfe14e7953ed11a5c64ef2563da1e56f8a54565",
+    "released_path": "crack_reconstruction/image/losses.py",
+    "adaptation": "import namespace relocation only",
+    "released_sha256": "611508ed9faf2936427f4ebf67184269ae28da1c594eb42efe53c33a511a502e"
+  },
+  {
+    "source_name": "train_dutr_v7_context_cegate_2d_20260928.py",
+    "source_sha256": "0a35bdc8e8252a8dce1aba6126a149f24a6e5ba2f6222208fc0d2288a50e20d4",
+    "released_path": "crack_reconstruction/train_gate.py",
+    "adaptation": "same trainer wrapped in main; explicit CLI paths/device; refuse nonempty output",
+    "released_sha256": "573537df68a9f0b9cd99fb5175972f883afd7221fdb231f4672dd830fba25afb"
+  }
+]

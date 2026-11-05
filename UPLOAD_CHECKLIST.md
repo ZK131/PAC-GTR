@@ -13,8 +13,10 @@ Recommended upload steps:
 1. Replace the repository root contents with this folder's contents.
 2. Keep `LICENSE`, `THIRD_PARTY.md`, `.gitignore`, `README.md`, and
    `pyproject.toml` at the repository root.
-3. Run `python -m pip install -e ".[test,train]"` and `pytest -q` in a clean
-   environment before tagging a release.
+3. Run `python -m pip install -e ".[reconstruction,image,test]"` and
+   `python -m unittest discover -s tests -p "test_current_reconstruction.py"`
+   before tagging the current-method release. The `pac_gtr` and `topocracknet`
+   packages remain historical APIs; the current method uses `crack_reconstruction`.
 4. In the GitHub release description, state that this is a code-only release;
    users must obtain CrackStructures and CrackEnsembles from their original
    providers under the applicable licenses.
