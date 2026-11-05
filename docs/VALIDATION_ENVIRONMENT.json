@@ -14,5 +14,14 @@
     "robust-laplacian": "1.1.0"
   },
   "ranker_checkpoint_training_sklearn": "1.6.1",
-  "learned_artifacts_distributed": false
+  "learned_artifacts_distributed": false,
+  "additional_compatibility_check": {
+    "scikit-learn": "1.6.1",
+    "installation": "isolated dependency target and built wheel; existing base environment otherwise retained",
+    "module_imports": 8,
+    "public_unit_tests_passed": 7,
+    "identical_graph_scorers_checked": 2,
+    "empty_state_checks": 3,
+    "full_fresh_dependency_environment_tested": false
+  }
 }

@@ -98,7 +98,3 @@ The paper's 23.59-second timing is not replaced by a migration-test timing.
 Use `--domain crackensembles` to activate the normalized small-cloud and exact-order MST adapter. Run one reconstruction per process.
 
 The principal scorer is `metrics_principal.evaluate(reference, prediction, probability_tree, probabilities)`. It retains the original bilateral counts, 10 mm sampling and bidirectional **average** Chamfer in millimeters. The transfer scorer `metrics_transfer.evaluate` returns average Chamfer in the input coordinate unit; multiply by 1,000 only for metric inputs. It preserves undefined distances for empty positive predictions. These are distinct overlap/endpoint protocols.
-
-Use `--domain crackensembles` to activate the normalized small-cloud and exact-order MST adapter. Run one reconstruction per process.
-
-The principal scorer is `metrics_principal.evaluate(reference, prediction, probability_tree, probabilities)`. It retains the original bilateral counts, 10 mm sampling and bidirectional **average** Chamfer in millimeters. The transfer scorer `metrics_transfer.evaluate` returns average Chamfer in the input coordinate unit; multiply by 1,000 only for metric inputs. It preserves undefined distances for empty positive predictions. These are distinct overlap/endpoint protocols.

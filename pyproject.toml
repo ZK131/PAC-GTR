@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pac-gtr"
 version = "0.2.0"
-description = "Code-only reference implementation of topology-aware 2D crack segmentation and PAC-GTR 2.5D crack centerline extraction."
+description = "Code-only implementation of DUTR image refinement and probability-aware multiview 3D crack centerline reconstruction."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "GPL-3.0-only" }
